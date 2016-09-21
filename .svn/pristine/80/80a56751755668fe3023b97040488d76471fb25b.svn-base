@@ -1,0 +1,40 @@
+
+<?php 
+$lastProductId = Mage::getSingleton('checkout/session')->getLastAddedProductId(true);  //last add product id 
+//$curId = $this->getRequest()->getParam('product');
+ 
+$_items = $this->getRecentItems();  //the all cart items
+
+$sortArr = array();  //A array to store the sort element
+
+if(count($_items)){
+	foreach($_items as $key => $_item){
+			if($lastProductId == $_item->getProductId() ){
+				
+				$sortArr[] = array('key'=>$key,'time'=>strtotime($_item ->getUpdatedAt()));
+			}
+	}
+	$relArr = arraySortByElements($sortArr,'time',-1);  //the sort result
+	echo $this->getItemHtml($_items[$relArr[0]['key']]);
+}
+
+
+/*-- The function to sort by array elements --*/
+function arraySortByElements($array2sort,$sortField,$order,$iscount=false) {
+	$functionString='
+        if ('.($iscount?'true':'false').'){
+              if(count($a["'.$sortField.'"]) > count($b["'.$sortField.'"])) return 1*'.$order.';
+            if(count($a["'.$sortField.'"]) < count($b["'.$sortField.'"])) return -1*'.$order.';
+          }else{
+            if($a["'.$sortField.'"] > $b["'.$sortField.'"]) return 1*'.$order.';
+            if($a["'.$sortField.'"] < $b["'.$sortField.'"]) return -1*'.$order.';
+          }
+        return 0;';
+
+	usort($array2sort, create_function('$a,$b',$functionString));
+	return $array2sort;
+}
+
+?>
+
+

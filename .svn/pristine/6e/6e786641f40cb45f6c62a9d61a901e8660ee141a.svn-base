@@ -1,0 +1,23 @@
+<?php $menuLabel = $this->getMenuLabel(null); ?>
+<?php if ($menuLabel != null) { ?>
+  <?php $menu = Mage::getModel('custommenu/custommenu')->load($menuLabel, 'label') ?>
+  <?php $menuItems = $this->getMenuItems($menuLabel); ?>
+  <?php if (count($menuItems) > 0) { ?>
+    <ul class="es_custommenu <?php echo $menuLabel ?> <?php echo $this->getHtmlClass() ?>" id="<?php echo $this->getHtmlId() ?>">
+      <?php $i = 0; ?>
+      <?php foreach ($menuItems as $_menuItem) {
+        $i++;
+        ?>
+        <?php if ($i == count($menuItems)) { ?>
+          <?php $class = 'es_menu_tier0 last' ?>
+        <?php } else if ($i == 1) { ?>
+          <?php $class = 'es_menu_tier0 first' ?>
+      <?php } ?>
+        <li class="<?php echo $class ?>">
+          <a href="<?php echo $_menuItem->getRealUrl() ?>" <?php echo $_menuItem->getTargetHtml() ?>><span><?php echo $_menuItem->getName() ?></span></a>
+        <?php echo $this->getSubMenuBlock($_menuItem)->toHtml(); ?>
+        </li>
+    <?php } ?>
+    </ul>
+  <?php } ?>
+<?php } ?>

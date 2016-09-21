@@ -1,0 +1,22 @@
+<?php $parentMenu = $this->getParentMenu() ?>
+<?php if ($parentMenu) { ?>
+  <?php $subMenuItems = $this->getMenuSubItems($parentMenu); ?>
+  <?php if (count($subMenuItems) > 0) { ?>
+    <ul class="es_customsubmenu_tier<?php echo $parentMenu->getLevel() + 1 ?> <?php echo $parentMenu->getClass() ?>" <?php echo $parentMenu->getAttributes() ?>>
+      <?php $i = 0; ?>
+      <?php foreach ($subMenuItems as $_subMenuItem) {
+        $i++;
+        ?>
+        <?php if($i == count($subMenuItems)){ ?>
+          <?php $class = 'es_menu_tier' . $_subMenuItem->getLevel() . ' last' ?>
+        <?php }else if($i == 1){ ?>
+          <?php $class = 'es_menu_tier' . $_subMenuItem->getLevel() . ' first' ?>
+        <?php } ?>
+        <li class="<?php echo $class ?>">
+          <a href="<?php echo $_subMenuItem->getRealUrl() ?>" <?php echo $_subMenuItem->getTargetHtml() ?>><span><?php echo $_subMenuItem->getName() ?></span></a>
+        <?php echo $this->getSubMenuBlock($_subMenuItem)->toHtml(); ?>
+        </li>
+    <?php } ?>
+    </ul>
+  <?php } ?>
+<?php } ?>

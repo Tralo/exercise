@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <XP_Xpbase>
+            <active>true</active>
+            <codePool>local</codePool>            
+        </XP_Xpbase>
+    </modules>
+</config>

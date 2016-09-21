@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <custommenu_adminhtml_custommenu_index>
+        <reference name="content">
+            <block type="custommenu/adminhtml_custommenu" name="custommenu" />
+        </reference>
+    </custommenu_adminhtml_custommenu_index>
+    <custommenu_adminhtml_custommenu_items_index>
+        <reference name="content">
+            <block type="custommenu/adminhtml_custommenu_items" name="custommenu_items" />
+        </reference>
+    </custommenu_adminhtml_custommenu_items_index>
+</layout>

@@ -1,0 +1,18 @@
+<div class="header">
+	<div class="header-logo"> <img src="<?php echo $this->getSkinUrl('supplier/images/logo.png') ?>"/> </div>
+
+	<div class="top-text">
+		<span class="top-text1">We strive to provide our clients an unparalleled return for the internet investment</span>
+		<br/>
+		<span class="top-text2">by developing perfect website and proven online marketing strategies techniques.</span>
+	</div>
+
+	<div class="top-user">
+		
+		<span><a href="#">admin</a></span>
+		| <a href="#">logout</a>
+
+	</div>
+
+</div>
+<div class="clear"></div>

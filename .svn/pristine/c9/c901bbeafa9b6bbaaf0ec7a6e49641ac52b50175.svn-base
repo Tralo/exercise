@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body>
+
+<div class="wrapper ps-static <?php echo $this->getLang().'-lang-class';?>">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+		<div class="main-container col1-layout">
+			<div class="supplier-container">
+
+
+
+				<div class="supplier-left">
+					<?php echo $this->getChildHtml('left') ?>
+				</div>
+
+				<div class="supplier-main">
+					<?php echo $this->getChildHtml('breadcrumbs') ?>
+					<?php echo $this->getChildHtml('global_messages') ?>
+
+					<?php echo $this->getChildHtml('content') ?>
+
+				</div>
+				
+            </div>
+        </div>
+        <div class="clear"></div>
+        <?php echo $this->getChildHtml('footer') ?>
+    </div>
+</div>
+</body>
+</html>

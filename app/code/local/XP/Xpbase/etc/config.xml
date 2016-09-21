@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <XP_Xpbase>
+            <version>0.1.0</version>
+        </XP_Xpbase>
+    </modules>
+    <global>
+        <models>
+        </models>
+        
+        <helpers>
+            <xpbase>
+                <class>XP_Xpbase_Helper</class>
+            </xpbase>
+        </helpers>
+         <blocks>
+				      <xpbase>
+				        <class>XP_Xpbase_Block</class>
+				      </xpbase>
+    			</blocks>
+    			
+    			 <resources>
+                    <xpbase_write>
+                        <connection>
+                            <use>core_write</use>
+                        </connection>
+                    </xpbase_write>
+                    <xpbase_read>
+                        <connection>
+                            <use>core_read</use>
+                        </connection>
+                    </xpbase_read>  
+
+                    <xpbase_setup>
+                         <setup>
+                             <module>XP_Xpbase</module>
+                         </setup>
+                        <connection>
+                          <use>core_setup</use>
+                         </connection>
+                    </xpbase_setup> 
+   			 </resources>    
+         <fieldsets>
+            <sales_convert_quote>
+                <media_track><to_order>*</to_order></media_track>              
+            </sales_convert_quote>
+        </fieldsets>  
+    </global>
+
+    <frontend>
+        <routers>
+            <xpbase>
+                <use>standard</use>
+                <args>
+                    <module>XP_Xpbase</module>
+                    <frontName>xpbase</frontName>
+                </args>
+            </xpbase>
+        </routers>        
+                 
+    </frontend>
+    
+</config>
